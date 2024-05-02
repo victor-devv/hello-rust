@@ -132,11 +132,17 @@ fn main() {
 
     // let (employee, access) = ("Victor", Access::Full);
 
-    let coord = (2, 3);
-    let (x, y) = (5, 6);
+    // let coord = (2, 3);
+    // let (x, y) = (5, 6);
 
-    println!("{:?}, {:?}", coord.0, coord.1);
-    println!("{:?}, {:?}", x, y);
+    // println!("{:?}, {:?}", coord.0, coord.1);
+    // println!("{:?}, {:?}", x, y);
 
+    // EXPRESSIONS
+    // Rust is an expression-based language
+    // this means that most things are evaluated and return some value
+    // expresssion value coalesce to a single point and as a result, expressions can be used for nesting loginc
+    
+    
 }
 
