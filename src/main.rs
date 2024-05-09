@@ -71,7 +71,7 @@ fn main() {
 
     // ENUM (ENUMERATION)
     // An enum is a piece data that can be one of multiple different possibilities
-    //each possibility is called a variant
+    // each possibility is called a variant
     // enums provide info about your program to the compiler resulting in more robust programms
 
     // enum Direction {
@@ -167,6 +167,7 @@ fn main() {
     // The owner of the memory is responsible for cleaninng up. The owner is simply a function
     // Memory can either be moved or borrowed from the owner
 
+
     // IMPL
     // this allows you to implement functionality on specific enumerations and structs. This greattly enhances code organization and makes it eaesy to follow
 
@@ -219,32 +220,183 @@ fn main() {
     //     hot.show_temp();
     // }
 
+
     //VECTOR
     // A vector is a structure that allows you to store multiple piececs of data
     //They are used for lists of information
     // you can add, remove and traverse the entries
 
-    let my_numbers: Vec<i32> = vec![1, 2, 3];
+    // let my_numbers: Vec<i32> = vec![1, 2, 3];
 
-    let mut my_numbers_sec: Vec<i32> = Vec::new();
+    // let mut my_numbers_sec: Vec<i32> = Vec::new();
 
-    my_numbers_sec.push(1);
-    my_numbers_sec.push(2);
-    my_numbers_sec.push(3);
+    // my_numbers_sec.push(1);
+    // my_numbers_sec.push(2);
+    // my_numbers_sec.push(3);
 
-    //remove last item
-    my_numbers_sec.pop();
+    // //remove last item
+    // my_numbers_sec.pop();
 
-    //get length
-    my_numbers_sec.len();
+    // //get length
+    // my_numbers_sec.len();
 
-    let two = my_numbers[1];
+    // let two = my_numbers[1];
 
-    //itereating through vector elements
+    // //itereating through vector elements
 
-    for num in my_numbers {
-        println!("{:?}", num);
-    }
+    // for num in my_numbers {
+    //     println!("{:?}", num);
+    // }
 
+
+    //STRINGS
+    // strings are used to store texts and words
+    // there are multiple types of strings
+
+    // two most commonly used are:
+    // String - owned data type
+    // &str - borrowed String slice
+
+    // To store string data in a struct, you must use an owned string
+    // Uses &str when passing to a function (more efficient)
+
+    // fn print_it(data: &str) {
+    //     println!("{:?}", data);
+    // }
+
+    // fn main() {
+    //     print_it("a string slice"); //automatically borrowed
+        
+    //     //owned string
+    //     let owned_string = "owned string".to_owned();
+    //     let another_owned = String::from("another");
+
+    //     print_it(&owned_string);
+    //     print_it(&another_owned);
+    // }
+
+    // DERIVE
+    // This can be used to automatically implement funcitonality on enums and structs
+    // Debug allows you to print an enum or struct. On structs, ensure all enums implement that derive too
+    // Clone
+    // Copy
+
+
+    // #[derive(Debug)]
+    // enum Position {
+    //     Manager,
+    //     Supervisor,
+    //     Worker
+    // }
+
+    // struct Employee {
+    //     position: Position,
+    //     work_hours: i64
+    // }
+
+    // fn main () {
+    //     let me  = Employee {
+    //         position: Position::Worker,
+    //         work_hours: 40
+    //     };
+
+    //     println!("{:?}", me.position);
+    // }
+
+    // Type Annotations
+    // This is required for function signatures. Types on variables are usually inferred by the compiler, but it can also be specified in code by you.
+    // Such is called Explicit Type Annotations
+
+    // fn print_many(msg: &str, count: i32) {
+    //     // do something
+    // }
+
+    // enum Mouse {
+    //     LeftClick,
+    //     RightClick,
+    //     MiddleClick,
+    // }
+
+    // fn main() {
+    //     let num: i32 = 15;
+    //     let a: char = 'a';
+    //     let left_click: MouseClicks = MouseClicks::LeftClick;
+        
+    //     //Generics
+        
+    //     let numbers: Vec<i32> = vec![1, 2, 3];
+    //     let letters: Vec<char> = vec!['a', 'b', 'c'];
+    //     let clicks: Vec<MouseClicks> = vec![
+    //         MouseClicks::LeftClick,
+    //         MouseClicks::RightClick,
+    //         MouseClicks::MiddleClick,
+    //     ];
+    // }
+
+    // ENUMS: WORKING WITH DATA
+    // RECAP
+    // An enum is a type that can represent one item at a time
+    // Each item is called a variant
+    // Each variant can optionally contain additional data
+
+    // enum Mouse {
+    //     LeftClick,
+    //     RightClick,
+    //     MiddleClick,
+    //     Scroll(i32),
+    //     Move(i32, i32),
+    // }
+
+    // enum PromoDiscount {
+    //     NewUser,
+    //     Holiday(String)
+    // }
+
+    // enum Discount {
+    //     Percent(f64),
+    //     Flat(i32),
+    //     Promo(PromoDiscount), // enum in enum
+    //     Custom(String), //special instructions to the cashier
+    // }
+
+
+    // // ADVANCED MATCH
+    // enum Discount {
+    //     Percent(i32),
+    //     Flat(i32),
+    // }
+
+    // struct Ticket {
+    //     event: String,
+    //     price: i32,
+    // }
+
+    // fn main() {
+    //     let n = 3;
+
+    //     match n {
+    //         3 => println!("three"),
+    //         other => println!("number: {:?}", other),
+    //     }
+
+    //     let flat = Discount::Flat(2);
+
+    //     match flat {
+    //         Discount::Flat(2) => println!("flat 2"),
+    //         Discount::Flat(amount) => println!("flat discount of: {:?}", amount),
+    //         _ => (), // () means return nothing. here, we are ignoring percent discounts in this match
+    //     }
+
+    //     let concert = Ticket {
+    //         event: "concert".to_owned(),
+    //         price: 50.0
+    //     };
+
+    //     match concert {
+    //         Ticket { price: 50, event } => println!("event @ 50 = {:?}", event),
+    //         Ticket { price, .. } => println!("price: {:?}", price), // .. means ignore other fields in the struct
+    //     }
+    // }
+    
 }
 
